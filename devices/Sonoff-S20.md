@@ -1,5 +1,7 @@
 Sonoff S20 comes in 4 different plug type variations. Flashing process will be the same for each type.
 
+For Version 2.1.0 with different PCB look at the end of the page.
+
 ## Serial Connection
 
 Please see the [Hardware Preparation](installation/Hardware-Preparation) page for general instructions.
@@ -67,3 +69,11 @@ default.sitemap:
 ## Configuration
 
 Once set up and connected, you can set the module type to `Sonoff S2X (8)` in `Configure module`.
+
+## Version 2.1.0
+
+There is a version of the S20 with 5 pins on the PCB. The PCB is marked with V2.1.0 and the 5th pin is marked “E-LOG”. The instruction above didn’t work on this model. After following the traces on the PCB und testing with a multimeter I figured out how to flash this version.
+
+The pin marked with “E-LOG” is connected to the GPIO2 (or sometimes called CH_PD) pin on the ESP8266 chip. This pin needs to be pulled up to flash. Connect it to the 3.3V Pin of the serial adapter. While flashing you need to hold the button down to connect GPIO0 to ground or solder a header pin to the corner of the button and connect it to the ground of the serial adapter (see example picture below).
+
+<img alt="SonoffS20v210" src="https://i.imgur.com/0Gj8IBl.jpg" width="230" />
